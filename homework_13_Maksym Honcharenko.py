@@ -30,17 +30,20 @@ class Car:
         self.speed = speed
 
     def accelerate(self):
-        return self.speed + 5
+        self.speed += 5
 
     def brake(self):
-        newspeed = self.speed - 5
-        if newspeed < 0:
-            max(0, newspeed)
+        if self.speed > 5:
+            self.speed -= 5
+        else:
+            self.speed = 0
 
     def display_speed(self):
-        print("your current speed is: " + self.speed)
+        print(f"your current speed is: + {self.speed}")
 
 
-toyota = Car("Toyota", "yaris", 2002, 1)
-print(toyota.accelerate())
-print(toyota.brake())
+toyota = Car("Toyota", "yaris", 2002, 0)
+toyota.accelerate()
+toyota.display_speed()
+toyota.brake()
+toyota.display_speed()
